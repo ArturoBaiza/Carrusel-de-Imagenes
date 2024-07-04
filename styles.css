@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS', 'Arial', sans-serif; 
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 50px;
+}
+
+.slider-box {
+  width: 90%;
+  max-width: 1280px;
+  margin: 50px auto 0;
+  overflow: hidden;
+  border-radius: 10px; 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.slider-box ul {
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: slide 120s infinite ease-in-out; /* Duración de la animación ajustada a 120 segundos */
+}
+
+.slider-box li {
+  width: 100%;
+  list-style: none;
+  margin-right: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+  transition: transform 1.5s ease-in-out; /* Suaviza la transición del tamaño */
+}
+
+.slider-box li:last-child {
+  margin-right: 0;
+}
+
+.slider-box li article {
+  width: 100%;
+  padding-top: 75%; /* Relación de aspecto más alta (75% de la anchura) */
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider-box li article img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
+  transition: transform 1.5s ease-in-out; /* Ajusta la duración de la transición */
+}
+
+.slider-box li article:hover img {
+  transform: scale(1.05);
+}
+
+.texto {
+  position: absolute;
+  text-align: center;
+  width: 100%; 
+  top: 50%;
+  transform: translateY(-50%); 
+  color: #ffffff;
+  z-index: 1;
+}
+
+.texto h2 {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  20%, 25% {
+    transform: translateX(0);
+  }
+  30%, 50% {
+    transform: translateX(-50%);
+  }
+  55%, 75% {
+    transform: translateX(-50%);
+  }
+  80%, 100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media(max-width: 991px) {
+  .slider-box {
+    width: 100%;
+    margin: 20px auto 0;
+  }
+
+  .slider-box li {
+    margin-right: 10px; 
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); 
+  }
+
+  .slider-box li:last-child {
+    margin-right: 0;
+  }
+
+  .slider-box li article {
+    padding-top: 100%; /* Relación de aspecto cuadrada para dispositivos más pequeños */
+  }
+
+  .texto {
+    padding: 0 15px;
+  }
+
+  .texto h2 {
+    font-size: 35px;
+    margin-bottom: 5px;
+  }
+}
